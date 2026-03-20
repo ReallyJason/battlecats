@@ -13,12 +13,13 @@ F1:: {
         case 1: icydesire()
         case 2: BuffetLevel()
         case 3: opening()
+        case 4: Reload_Game()
         case 7: test()
     }
 }
 
 F5:: {
-    if (buttonAction != 51) {
+    if (buttonAction != 101) {
         upEverything()
         Reload()
     } else {

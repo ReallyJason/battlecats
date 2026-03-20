@@ -22,22 +22,24 @@ BuffetLevel() {
 }
 
 opening() {
-    if (!LuckyCapsuleColor())
-        Reload()
-    
-    press4()
-    Sleep(10000)
-    Loop 20 {
+    while (true) {
+        if (!LuckyCapsuleColor())
+            Reload()
+        
         press4()
-        Sleep(500)
+        Sleep(10000)
+        Loop 20 {
+            press4()
+            Sleep(500)
+        }
+        Sleep(1000)
     }
-    Sleep(1000)
-    opening()
 }
 
 test() {
-    fightBuffet()
-    test()
+    while (true) {
+        fightBuffet()
+    }
 }
 
 fighticydesire() {
@@ -109,4 +111,20 @@ fightBuffet() {
         sleep(500)
         clickLeft()
     Sleep(500)
+}
+
+Reload_Game() {
+    Send("{Esc}"), Sleep(2000)
+    Send("{L}"), Sleep(3000) ;leave game button
+    MouseMove(800, 450), Sleep(1000) ;confirm leave
+    clickLeft(),Sleep(1000)
+    clickLeft(),Sleep(15000)
+    MouseMove(175, 350), Sleep(1000) ;first game icon
+    MouseMove(175, 550), Sleep(1000) ;play first game button
+    clickLeft(), Sleep(1000)
+    MouseMove(900, 250), Sleep(1000) ;Play button incase you are in the description screen
+    clickLeft(), Sleep(1000)
+    clickLeft(), Sleep(14000)
+    clickLeft(), Sleep(1000) ;Click anywhere to bypass title screen
+    Reload()
 }
