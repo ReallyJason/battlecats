@@ -57,3 +57,4 @@ slect4() => (MouseMove(1288, 891), Sleep(500), clickLeft())
 slect5() => (MouseMove(1444, 891), Sleep(500), clickLeft())
 clickLeft() => (Click("down"), Sleep(100), Click("up"))
 upEverything() => (Click("up"), Send("{w up}{a up}{d up}{s up}"))
+

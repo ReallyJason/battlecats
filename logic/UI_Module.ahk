@@ -11,6 +11,8 @@ MainGui.Add("Button", "w100", "Lucky ticket -> Icy desire").OnEvent("Click", (*)
 MainGui.Add("Button", "w100", "Buffet").OnEvent("Click", (*) => SetAction(2))
 MainGui.Add("Button", "w100", "Opening Lucky").OnEvent("Click", (*) => SetAction(3))
 MainGui.Add("Button", "w100", "Reload Game").OnEvent("Click", (*) => SetAction(4))
+MainGui.Add("Button", "w100", "Random Mouse Move").OnEvent("Click", (*) => SetAction(5))
+MainGui.Add("Button", "w100", "Move Up").OnEvent("Click", (*) => SetAction(6))
 MainGui.Add("Button", "w100", "Exit").OnEvent("Click", (*) => ExitApp())
 MainGui.Add("Button", "x150 y106 w50", "Test").OnEvent("Click", (*) => SetAction(7))
 

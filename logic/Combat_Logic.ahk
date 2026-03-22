@@ -124,7 +124,36 @@ Reload_Game() {
     clickLeft(), Sleep(1000)
     MouseMove(900, 250), Sleep(1000) ;Play button incase you are in the description screen
     clickLeft(), Sleep(1000)
+    clickLeft(), Sleep(1000)
     clickLeft(), Sleep(14000)
     clickLeft(), Sleep(1000) ;Click anywhere to bypass title screen
     Reload()
+}
+
+random_mouse_move_loop() {
+    while (true){
+        random_mouse_move()
+        Sleep(100)
+    }
+}
+
+random_mouse_move() {
+    MouseMove(200, 100, 50)
+    Sleep(20000)
+    MouseMove(200, 200, 50)
+    Sleep(20000)
+}
+
+move_up_loop() {
+    while (true){
+        move_up()
+        Sleep(100)
+    }
+}
+
+move_up() {
+    Send("{W down}"),
+    Sleep(200),
+    Send("{W up}"),
+    Sleep(60000*6)
 }
