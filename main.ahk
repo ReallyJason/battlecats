@@ -13,7 +13,7 @@ F1:: {
         case 1: icydesire()
         case 2: BuffetLevel()
         case 3: opening()
-        case 4: Reload_Game()
+        case 4: fusion()
         case 5: random_mouse_move_loop()
         case 6: move_up_loop()
         case 7: test()

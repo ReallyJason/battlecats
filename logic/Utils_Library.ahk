@@ -6,7 +6,7 @@ global Movex := 0, Movey := 0
 selectLevel(stageFunc) {
     global Movex, Movey
     Sleep(500)
-    
+
     ; Menu navigation
     MouseMove(500, 350)
     Sleep(100)
@@ -25,15 +25,15 @@ selectLevel(stageFunc) {
             Sleep(2000)
         }
     }
-    
+
     Sleep(2000)
     MouseMove(1600, 700) ; Attack stage
     Sleep(100)
     clickLeft()
     Sleep(1000)
-    
-    if(true){
-    ;if (redFlag()) {
+
+    if (true) {
+        ;if (redFlag()) {
         Sleep(1000)
         MouseMove(907, 667) ; Energy refill "Yes"
         Sleep(1000)
@@ -55,6 +55,5 @@ slect2() => (MouseMove(929, 891), Sleep(500), clickLeft())
 slect3() => (MouseMove(1109, 891), Sleep(500), clickLeft())
 slect4() => (MouseMove(1288, 891), Sleep(500), clickLeft())
 slect5() => (MouseMove(1444, 891), Sleep(500), clickLeft())
-clickLeft() => (Click("down"), Sleep(100), Click("up"))
+clickLeft() => (Click("down"), Sleep(200), Click("up"))
 upEverything() => (Click("up"), Send("{w up}{a up}{d up}{s up}"))
-

@@ -10,13 +10,13 @@ global Movey := 0
 MainGui := Gui("+AlwaysOnTop", "Main Screen")
 MainGui.OnEvent("Close", (*) => ExitApp())
 
-MainGui.Add("Text",, "Reminder that F1 starts, and F5 stops")
+MainGui.Add("Text", , "Reminder that F1 starts, and F5 stops")
 
 ; Map buttons to a helper function that sets the action and hides the GUI
 MainGui.Add("Button", "w200", "Lucky ticket -> Icy desire").OnEvent("Click", (*) => SetAction(1))
 MainGui.Add("Button", "w200", "Buffet").OnEvent("Click", (*) => SetAction(2))
 MainGui.Add("Button", "w200", "Opening Lucky").OnEvent("Click", (*) => SetAction(3))
-MainGui.Add("Button", "w200", "nothing").OnEvent("Click", (*) => SetAction(4))
+MainGui.Add("Button", "w200", "Doing the fusion").OnEvent("Click", (*) => SetAction(4))
 MainGui.Add("Button", "w200", "nothing").OnEvent("Click", (*) => SetAction(5))
 MainGui.Add("Button", "w200", "nothing").OnEvent("Click", (*) => SetAction(6))
 MainGui.Add("Button", "w200", "Exit").OnEvent("Click", (*) => ExitApp()) ; Action 51/Exit
@@ -58,7 +58,7 @@ icydesire() {
     selectLevel(redOnSelect) ; We pass the function object itself now
     Sleep(3000)
     fighticydesire()
-    icydesire() 
+    icydesire()
 }
 
 BuffetLevel() {
@@ -73,7 +73,7 @@ BuffetLevel() {
 opening() {
     if (!LuckyCapsuleColor())
         Reload()
-    
+
     press4()
     Sleep(10000)
     Loop 20 {
@@ -94,7 +94,7 @@ test() {
 selectLevel(stageFunc) {
     global Movex, Movey
     Sleep(500)
-    
+
     ; Menu navigation
     MouseMove(500, 350)
     Sleep(100)
@@ -113,15 +113,15 @@ selectLevel(stageFunc) {
             Sleep(2000)
         }
     }
-    
+
     Sleep(2000)
     MouseMove(1600, 700) ; Attack stage
     Sleep(100)
     clickLeft()
     Sleep(1000)
-    
-    if(true){
-    ;if (redFlag()) {
+
+    if (true) {
+        ;if (redFlag()) {
         Sleep(1000)
         MouseMove(907, 667) ; Energy refill "Yes"
         Sleep(1000)
@@ -142,12 +142,12 @@ fighticydesire() {
     }
     while (!buhmreadyforsum())
         Sleep(500)
-    
+
     slect3()
     Sleep(1000)
     while (!itemReward() && !yesbutton() && !startbuttoncolor())
         Sleep(500)
-    
+
     MouseMove(857, 877)
     Loop 3 {
         Sleep(500)
@@ -167,22 +167,22 @@ fightBuffet() {
     Sleep(1000)
     while (!izumisumm())
         Sleep(500)
-    
+
     slect4() ; summon izumi
     Sleep(1000)
     slect4() ; ability
     Sleep(2000)
     slect1()
-    
+
     if (!YellowPause())
         Reload()
-    
+
     while (!phonoasumm())
         Sleep(500)
-    
+
     slect5() ; summon phonoa
     Sleep(2000)
-    
+
     while (!itemReward() && !yesbutton() && !startbuttoncolor()) {
         slect1()
         Sleep(500)
@@ -198,9 +198,9 @@ fightBuffet() {
     }
     if (yesbutton())
         sleep(1000)
-        mouseMove(950, 650) ; Click "Yes" for reward
-        sleep(500)
-        clickLeft()
+    mouseMove(950, 650) ; Click "Yes" for reward
+    sleep(500)
+    clickLeft()
     Sleep(500)
 }
 
@@ -248,16 +248,16 @@ redOnSelect() {
 }
 
 redFlag() {
-    return PixelSearch(&gx, &gy, 700, 370, 800, 450, 0x36362E, 0) 
+    return PixelSearch(&gx, &gy, 700, 370, 800, 450, 0x36362E, 0)
         || PixelSearch(&gx, &gy, 700, 370, 800, 450, 0xD34032, 0)
 }
 
 CatFruitBuffet() {
     ; v2 uses parentheses and quotes for CoordMode
-    CoordMode("Pixel", "Screen") 
+    CoordMode("Pixel", "Screen")
     Sleep(1000)
 
-    ; ImageSearch returns true/false directly in v2. 
+    ; ImageSearch returns true/false directly in v2.
     ; No more ErrorLevel! Use & to catch the coordinates.
     if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\images\Buffet.PNG") {
         MouseMove(gx, gy)

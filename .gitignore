@@ -1,0 +1,21 @@
+# AutoHotkey Compiled Executables
+*.exe
+
+# Logs and Temporary files
+*.log
+*.tmp
+*.bak
+
+# Developer / Editor configurations
+.vscode/
+*.code-workspace
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes

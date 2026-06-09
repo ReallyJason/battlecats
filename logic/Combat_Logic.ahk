@@ -3,16 +3,67 @@
 #Include .\image_color.ahk
 
 icydesire() {
-    while(true){
+    while (true) {
         selectLevel(redOnSelect) ; We pass the function object itself now
         Sleep(3000)
         fighticydesire()
-        icydesire() 
+        icydesire()
+    }
+}
+
+fusion() {
+    petCount := 0
+    SendMode "Event"
+    while (true) {
+        goingtofusemachine()
+
+        if (petCount < 30) {
+            fusingPets()
+            petCount++
+        }
+    }
+}
+
+goingtofusemachine() {
+    MouseMove(150, 500, 5) ;super computer
+    Sleep(500)
+    clickLeft()
+    Sleep(500)
+    MouseMove(1000, 600, 5) ;fuse machine
+    Sleep(1000)
+    clickLeft()
+    Sleep(1000)
+}
+
+fusingPets() {
+    MouseMove(1300, 225) ;search bar
+    Sleep(1000)
+    clickLeft()
+    TypeSlowly("narw") ;type what you want to fuse
+    Sleep(1000)
+    clickLeft()
+    MouseMove(901, 334) ;select the max ammount
+    Sleep(100)
+    clickLeft()
+    Sleep(1000)
+    MouseMove(600, 700) ;press Ok
+    Sleep(1000)
+    clickLeft()
+    Sleep(500)
+    MouseMove(900, 700) ;press Ok confirmation
+    Sleep(1000)
+    clickLeft()
+}
+
+TypeSlowly(text) {
+    Loop Parse, text {
+        Send(A_LoopField)
+        Sleep(20)
     }
 }
 
 BuffetLevel() {
-    while(true){
+    while (true) {
         selectLevel(CatFruitBuffet)
         Sleep(3000)
         while (!startbuttoncolor()) {
@@ -25,7 +76,7 @@ opening() {
     while (true) {
         if (!LuckyCapsuleColor())
             Reload()
-        
+
         press4()
         Sleep(10000)
         Loop 20 {
@@ -51,12 +102,12 @@ fighticydesire() {
     }
     while (!buhmreadyforsum())
         Sleep(500)
-    
+
     slect3()
     Sleep(1000)
     while (!itemReward() && !yesbutton() && !startbuttoncolor())
         Sleep(500)
-    
+
     MouseMove(857, 877)
     Loop 3 {
         Sleep(500)
@@ -76,22 +127,22 @@ fightBuffet() {
     Sleep(1000)
     while (!izumisumm())
         Sleep(500)
-    
+
     slect4() ; summon izumi
     Sleep(1000)
     slect4() ; ability
     Sleep(2000)
     slect1()
-    
+
     if (!YellowPause())
         Reload()
-    
+
     while (!phonoasumm())
         Sleep(500)
-    
+
     slect5() ; summon phonoa
     Sleep(2000)
-    
+
     while (!itemReward() && !yesbutton() && !startbuttoncolor()) {
         slect1()
         Sleep(500)
@@ -107,31 +158,14 @@ fightBuffet() {
     }
     if (yesbutton())
         sleep(1000)
-        mouseMove(950, 650) ; Click "Yes" for reward
-        sleep(500)
-        clickLeft()
+    mouseMove(950, 650) ; Click "Yes" for reward
+    sleep(500)
+    clickLeft()
     Sleep(500)
 }
 
-Reload_Game() {
-    Send("{Esc}"), Sleep(2000)
-    Send("{L}"), Sleep(3000) ;leave game button
-    MouseMove(800, 450), Sleep(1000) ;confirm leave
-    clickLeft(),Sleep(1000)
-    clickLeft(),Sleep(15000)
-    MouseMove(175, 350), Sleep(1000) ;first game icon
-    MouseMove(175, 550), Sleep(1000) ;play first game button
-    clickLeft(), Sleep(1000)
-    MouseMove(900, 250), Sleep(1000) ;Play button incase you are in the description screen
-    clickLeft(), Sleep(1000)
-    clickLeft(), Sleep(1000)
-    clickLeft(), Sleep(14000)
-    clickLeft(), Sleep(1000) ;Click anywhere to bypass title screen
-    Reload()
-}
-
 random_mouse_move_loop() {
-    while (true){
+    while (true) {
         random_mouse_move()
         Sleep(100)
     }
@@ -145,7 +179,7 @@ random_mouse_move() {
 }
 
 move_up_loop() {
-    while (true){
+    while (true) {
         move_up()
         Sleep(100)
     }
@@ -153,7 +187,7 @@ move_up_loop() {
 
 move_up() {
     Send("{W down}"),
-    Sleep(200),
-    Send("{W up}"),
-    Sleep(60000*6)
+        Sleep(200),
+        Send("{W up}"),
+        Sleep(60000 * 6)
 }
