@@ -12,12 +12,12 @@ icydesire() {
 }
 
 fusion() {
-    petCount := 0
-    SendMode "Event"
     while (true) {
+        SendMode "Event"
         goingtofusemachine()
 
-        if (petCount < 30) {
+        petCount := 0
+        while (petCount < 30) {
             fusingPets()
             petCount++
         }
