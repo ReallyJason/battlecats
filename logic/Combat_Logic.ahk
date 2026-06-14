@@ -14,45 +14,56 @@ icydesire() {
 fusion() {
     while (true) {
         SendMode "Event"
+        Sleep(1000)
         goingtofusemachine()
 
         petCount := 0
-        while (petCount < 30) {
-            fusingPets()
+        while (petCount < 100) {
+            if (!fusingPets()) {
+                break
+            }
             petCount++
         }
     }
 }
 
 goingtofusemachine() {
-    MouseMove(150, 500, 5) ;super computer
-    Sleep(500)
+    MouseMove(150, 550, 5) ;super computer
+    Sleep(300)
     clickLeft()
-    Sleep(500)
+    Sleep(300)
     MouseMove(1000, 600, 5) ;fuse machine
-    Sleep(1000)
+    Sleep(300)
     clickLeft()
-    Sleep(1000)
+    Sleep(300)
 }
 
 fusingPets() {
-    MouseMove(1300, 225) ;search bar
-    Sleep(1000)
+    MouseMove(1300, 225, 5) ;search bar
+    Sleep(300)
     clickLeft()
     TypeSlowly("narw") ;type what you want to fuse
-    Sleep(1000)
+    Sleep(300)
     clickLeft()
-    MouseMove(901, 334) ;select the max ammount
-    Sleep(100)
+    MouseMove(901, 334, 5)  ;select the max ammount
+    ;#1 = 901, 334
+    ;#2 = 1053, 338
+    ;#3 = 1202, 323
+    ;#4 = 1355, 331
+    Sleep(300)
     clickLeft()
-    Sleep(1000)
-    MouseMove(600, 700) ;press Ok
-    Sleep(1000)
+    Sleep(300)
+    if (!PS99_greenok()) {
+        return false
+    }
+    MouseMove(600, 700, 5) ;press Ok
+    Sleep(300)
     clickLeft()
-    Sleep(500)
-    MouseMove(900, 700) ;press Ok confirmation
-    Sleep(1000)
+    MouseMove(900, 700, 5) ;press Ok confirmation
+    Sleep(300)
     clickLeft()
+    Sleep(300)
+    return true
 }
 
 TypeSlowly(text) {

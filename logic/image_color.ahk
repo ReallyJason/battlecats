@@ -21,12 +21,25 @@ redOnSelect() {
 }
 
 redFlag() {
-    return PixelSearch(&gx, &gy, 700, 370, 800, 450, 0x36362E, 0) 
+    return PixelSearch(&gx, &gy, 700, 370, 800, 450, 0x36362E, 0)
         || PixelSearch(&gx, &gy, 700, 370, 800, 450, 0xD34032, 0)
 }
 
+PS99_greenok() {
+    startTime := A_TickCount
+
+    while (A_TickCount - startTime < 500) {
+        if PixelSearch(&gx, &gy, 500, 650, 750, 750, 0x81F70E, 30) {
+            return true
+        }
+        Sleep(10)
+    }
+
+    return false
+}
+
 CatFruitBuffet() {
-    CoordMode("Pixel", "Screen") 
+    CoordMode("Pixel", "Screen")
     Sleep(1000)
 
     if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\logic\images\Buffet.PNG") {
@@ -38,7 +51,7 @@ CatFruitBuffet() {
 }
 
 GrowingCatfruit() {
-    CoordMode("Pixel", "Screen") 
+    CoordMode("Pixel", "Screen")
     Sleep(1000)
 
     if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\logic\images\growing_catfruit.PNG") {
