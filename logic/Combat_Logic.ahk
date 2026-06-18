@@ -14,7 +14,7 @@ icydesire() {
 fusion() {
     while (true) {
         SendMode "Event"
-        Sleep(1000)
+        Sleep(500)
         goingtofusemachine()
 
         petCount := 0
@@ -29,30 +29,30 @@ fusion() {
 
 goingtofusemachine() {
     MouseMove(150, 550, 5) ;super computer
-    Sleep(300)
+    Sleep(100)
     clickLeft()
-    Sleep(300)
+    Sleep(100)
     MouseMove(1000, 600, 5) ;fuse machine
-    Sleep(300)
+    Sleep(100)
     clickLeft()
-    Sleep(300)
+    Sleep(100)
 }
 
 fusingPets() {
     MouseMove(1300, 225, 5) ;search bar
-    Sleep(300)
+    Sleep(100)
     clickLeft()
-    TypeSlowly("narw") ;type what you want to fuse
-    Sleep(300)
+    TypeSlowly("eagle") ;type what you want to fuse
+    Sleep(100)
     clickLeft()
     MouseMove(901, 334, 5)  ;select the max ammount
     ;#1 = 901, 334
     ;#2 = 1053, 338
     ;#3 = 1202, 323
     ;#4 = 1355, 331
-    Sleep(300)
+    Sleep(100)
     clickLeft()
-    Sleep(300)
+    Sleep(100)
     if (!PS99_greenok()) {
         return false
     }
@@ -60,9 +60,12 @@ fusingPets() {
     Sleep(300)
     clickLeft()
     MouseMove(900, 700, 5) ;press Ok confirmation
-    Sleep(300)
+    Sleep(500)
+    if (!PS99_greenok2()) {
+        return false
+    }
     clickLeft()
-    Sleep(300)
+    Sleep(100)
     return true
 }
 

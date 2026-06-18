@@ -37,6 +37,18 @@ PS99_greenok() {
 
     return false
 }
+PS99_greenok2() {
+    startTime := A_TickCount
+
+    while (A_TickCount - startTime < 2000) {
+        if PixelSearch(&gx, &gy, 800, 600, 1100, 750, 0x81F70E, 30) {
+            return true
+        }
+        Sleep(10)
+    }
+
+    return false
+}
 
 CatFruitBuffet() {
     CoordMode("Pixel", "Screen")
