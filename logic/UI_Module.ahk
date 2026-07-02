@@ -15,7 +15,7 @@ MainGui.Add("Button", "w100", "Random Mouse Move").OnEvent("Click", (*) => SetAc
 MainGui.Add("Button", "w100", "Move Up").OnEvent("Click", (*) => SetAction(6))
 MainGui.Add("Button", "w100", "Exit").OnEvent("Click", (*) => ExitApp())
 MainGui.Add("Button", "x150 y106 w50", "Test").OnEvent("Click", (*) => SetAction(7))
-
+MainGui.Add("Button", "w100", "Going back and forth").OnEvent("Click", (*) => SetAction(8))
 MainGui.Show("w350 h400")
 
 SetAction(val) {

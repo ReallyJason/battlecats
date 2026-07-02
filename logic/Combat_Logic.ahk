@@ -27,10 +27,16 @@ fusion() {
     }
 }
 
-goingtofusemachine() {
-    MouseMove(150, 550, 5) ;super computer
-    Sleep(100)
-    clickLeft()
+goingtofusemachinewhileegghatching() {
+    ; MouseMove(150, 550, 5) ;super computer
+    ; Sleep(100)
+    ; clickLeft()
+    while (!shopColor()) {
+        Sleep(50)
+    }
+    Sleep(300)
+
+    Send("g")
     Sleep(100)
     MouseMove(1000, 600, 5) ;fuse machine
     Sleep(100)
@@ -38,35 +44,155 @@ goingtofusemachine() {
     Sleep(100)
 }
 
-fusingPets() {
+fusingPetswhileegghatching() {
     MouseMove(1300, 225, 5) ;search bar
-    Sleep(100)
+    ;Sleep(100)
     clickLeft()
     TypeSlowly("eagle") ;type what you want to fuse
-    Sleep(100)
+    ;Sleep(100)
     clickLeft()
     MouseMove(901, 334, 5)  ;select the max ammount
     ;#1 = 901, 334
     ;#2 = 1053, 338
     ;#3 = 1202, 323
     ;#4 = 1355, 331
-    Sleep(100)
+    ;Sleep(100)
     clickLeft()
-    Sleep(100)
     if (!PS99_greenok()) {
         return false
     }
     MouseMove(600, 700, 5) ;press Ok
-    Sleep(300)
     clickLeft()
     MouseMove(900, 700, 5) ;press Ok confirmation
-    Sleep(500)
     if (!PS99_greenok2()) {
         return false
     }
     clickLeft()
     Sleep(100)
     return true
+}
+
+
+goingtofusemachine() {
+    Send("6")
+    MouseMove(1000, 600, 5) ;fuse machine
+    clickLeft()
+}
+
+fusingPets() {
+    MouseMove(1300, 225, 5) ;search bar
+    clickLeft()
+    TypeSlowly("eagle") ;type what you want to fuse
+    clickLeft()
+    MouseMove(901, 334, 5)  ;select the max ammount
+    ;#1 = 901, 334
+    ;#2 = 1053, 338
+    ;#3 = 1202, 323
+    ;#4 = 1355, 331
+    clickLeft()
+    if (!PS99_greenok()) {
+        return false
+    }
+    MouseMove(600, 700, 5) ;press Ok
+    clickLeft()
+    Sleep(1000)
+    MouseMove(900, 700, 5) ;press Ok confirmation
+    if (!PS99_greenok2()) {
+        return false
+    }
+    clickLeft()
+    return true
+}
+
+goingbackandforth() {
+    while (true) {
+        Send("{a down}")
+        Sleep(1000)
+        Send("{a up}")
+        battling_evomons()
+        more_tries_catching()
+
+        Sleep(100)
+        Send("{s down}")
+        Sleep(1000)
+        Send("{s up}")
+        battling_evomons()
+        more_tries_catching()
+
+        Sleep(100)
+        Send("{d down}")
+        Sleep(1000)
+        Send("{d up}")
+        battling_evomons()
+        more_tries_catching()
+
+        Sleep(100)
+        Send("{w down}")
+        Sleep(1000)
+        Send("{w up}")
+        battling_evomons()
+        more_tries_catching()
+
+        Sleep(100)
+    }
+}
+
+goingbackandforth_catching() {
+    while (true) {
+        Send("{a down}")
+        Sleep(1000)
+        Send("{a up}")
+
+        Sleep(100)
+        Send("{s down}")
+        Sleep(1000)
+        Send("{s up}")
+
+        Sleep(100)
+        Send("{d down}")
+        Sleep(1000)
+        Send("{d up}")
+
+        Sleep(100)
+        Send("{w down}")
+        Sleep(1000)
+        Send("{w up}")
+
+        Sleep(100)
+    }
+}
+
+battling_evomons() {
+    if (question_mark_top()) {
+        Sleep(1000)
+        while (!shiny_color_left()) {
+            Sleep(1000)
+        }
+        Sleep(1500)
+        if (shiny_color_middle() or hundred_percent_shiny_green() or prismatic_color_middle()) {
+            Send("{F5}")
+            Sleep(5000)
+        }
+        if (hundred_percent_prismatic_green()) {
+            Sleep(100)
+            Send("{c down}"), Sleep(100), Send("{c up}")
+            Sleep(1000)
+        } else {
+            Sleep(100)
+            Send("{e down}"), Sleep(100), Send("{e up}")
+            Sleep(1000)
+        }
+    }
+}
+
+more_tries_catching() {
+    if (shiny_color_middle() or hundred_percent_shiny_green() or prismatic_color_middle()) {
+        Send("{F5}")
+        Sleep(5000)
+    }
+    if (shiny_color_left()) {
+        Send("{e down}"), Sleep(100), Send("{e up}")
+    }
 }
 
 TypeSlowly(text) {

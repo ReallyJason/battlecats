@@ -73,3 +73,30 @@ GrowingCatfruit() {
         return false
     }
 }
+shopColor() {
+    return PixelSearch(&gx, &gy, 0, 364, 400, 670, 0xFF145D, 10)
+}
+
+shiny_color_middle() {
+    return PixelSearch(&gx, &gy, 500, 300, 1400, 900, 0xFF8417, 0)
+}
+
+prismatic_color_middle() {
+    return PixelSearch(&gx, &gy, 500, 300, 1400, 900, 0xFFD26C, 0)
+}
+
+shiny_color_left() {
+    return PixelSearch(&gx, &gy, 0, 1000, 200, 900, 0xFF8417, 0)
+}
+
+question_mark_top() {
+    return PixelSearch(&gx, &gy, 1800, 100, 1910, 200, 0xFFB42E, 0)
+}
+
+hundred_percent_prismatic_green() {
+    return PixelSearch(&gx, &gy, 100, 800, 320, 877, 0x6FF142, 10)
+}
+
+hundred_percent_shiny_green() {
+    return PixelSearch(&gx, &gy, 100, 900, 250, 950, 0x6FF142, 10)
+}
