@@ -1,10 +1,10 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-; Include the other modules
-#Include .\logic\UI_Module.ahk
-#Include .\logic\Combat_Logic.ahk
-#Include .\logic\Utils_Library.ahk
+; Include the core modules
+#Include .\core\gui_panel.ahk
+#Include .\core\actions.ahk
+#Include .\core\input_helpers.ahk
 
 ; Hotkeys
 F1:: {
@@ -18,6 +18,18 @@ F1:: {
         case 6: move_up_loop()
         case 7: test()
         case 8: goingbackandforth()
+        case 9: goingbackandforth_no_catching()
+        case 10: fighting_bosses()
+        case 11: Sleep(100000)
+        case 12: Sleep(100000)
+        case 13: Sleep(100000)
+        case 14: Sleep(100000)
+        case 15: Sleep(100000)
+        case 16: Sleep(100000)
+        case 17: Sleep(100000)
+        case 18: Sleep(100000)
+        case 19: Sleep(100000)
+        case 20: Sleep(100000)
     }
 }
 

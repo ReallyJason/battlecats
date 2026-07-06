@@ -54,7 +54,7 @@ CatFruitBuffet() {
     CoordMode("Pixel", "Screen")
     Sleep(1000)
 
-    if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\logic\images\Buffet.PNG") {
+    if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\core\images\Buffet.PNG") {
         MouseMove(gx, gy)
         return true
     } else {
@@ -66,7 +66,7 @@ GrowingCatfruit() {
     CoordMode("Pixel", "Screen")
     Sleep(1000)
 
-    if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\logic\images\growing_catfruit.PNG") {
+    if ImageSearch(&gx, &gy, 0, 0, A_ScreenWidth, A_ScreenHeight, "*90 .\core\images\growing_catfruit.PNG") {
         MouseMove(gx, gy)
         return true
     } else {
@@ -82,8 +82,10 @@ shiny_color_middle() {
 }
 
 prismatic_color_middle() {
-    return PixelSearch(&gx, &gy, 500, 300, 1400, 900, 0xFFD26C, 0)
+    return PixelSearch(&gx, &gy, 500, 300, 1400, 900, 0x71FE47, 0)
 }
+; 0x71FE47 = green prismatic
+; 0xFF95D1 = prink prismatic
 
 shiny_color_left() {
     return PixelSearch(&gx, &gy, 0, 1000, 200, 900, 0xFF8417, 0)
@@ -94,9 +96,9 @@ question_mark_top() {
 }
 
 hundred_percent_prismatic_green() {
-    return PixelSearch(&gx, &gy, 100, 800, 320, 877, 0x6FF142, 10)
+    return PixelSearch(&gx, &gy, 100, 800, 320, 877, 0x6FF142, 0)
 }
 
 hundred_percent_shiny_green() {
-    return PixelSearch(&gx, &gy, 100, 900, 250, 950, 0x6FF142, 10)
+    return PixelSearch(&gx, &gy, 100, 900, 250, 950, 0x6FF142, 0)
 }

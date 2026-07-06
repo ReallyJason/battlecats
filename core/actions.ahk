@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
-#Include .\Utils_Library.ahk
-#Include .\image_color.ahk
+#Include .\input_helpers.ahk
+#Include .\pixel_detection.ahk
 
 icydesire() {
     while (true) {
@@ -106,6 +106,9 @@ fusingPets() {
 
 goingbackandforth() {
     while (true) {
+        ; battling_evomons()
+        ; more_tries_catching()
+        ; Sleep(1000)
         Send("{a down}")
         Sleep(1000)
         Send("{a up}")
@@ -137,28 +140,53 @@ goingbackandforth() {
     }
 }
 
-goingbackandforth_catching() {
+goingbackandforth_no_catching() {
     while (true) {
         Send("{a down}")
         Sleep(1000)
         Send("{a up}")
+        battling_evomons_no_catch()
 
         Sleep(100)
         Send("{s down}")
         Sleep(1000)
         Send("{s up}")
+        battling_evomons_no_catch()
 
         Sleep(100)
         Send("{d down}")
         Sleep(1000)
         Send("{d up}")
+        battling_evomons_no_catch()
 
         Sleep(100)
         Send("{w down}")
         Sleep(1000)
         Send("{w up}")
+        battling_evomons_no_catch()
 
         Sleep(100)
+    }
+}
+
+battling_evomons_no_catch() {
+    if (question_mark_top()) {
+        Sleep(1000)
+        while (!shiny_color_left()) {
+            Sleep(1000)
+        }
+        Sleep(1500)
+        if (shiny_color_middle() or hundred_percent_shiny_green()) {
+            Send("{F5}")
+            Sleep(5000)
+        }
+        if (hundred_percent_prismatic_green()) {
+            Sleep(100)
+            Send("{c down}"), Sleep(100), Send("{c up}")
+            Sleep(1000)
+        } else {
+            Send("{F5}")
+        }
     }
 }
 
@@ -169,6 +197,15 @@ battling_evomons() {
             Sleep(1000)
         }
         Sleep(1500)
+        if (shiny_color_middle()) {
+            MsgBox("middle shiny")
+        }
+        if (hundred_percent_shiny_green()) {
+            MsgBox("left shiny")
+        }
+        if (prismatic_color_middle()) {
+            MsgBox("prismatic middle")
+        }
         if (shiny_color_middle() or hundred_percent_shiny_green() or prismatic_color_middle()) {
             Send("{F5}")
             Sleep(5000)
@@ -186,12 +223,44 @@ battling_evomons() {
 }
 
 more_tries_catching() {
-    if (shiny_color_middle() or hundred_percent_shiny_green() or prismatic_color_middle()) {
+    if (shiny_color_left() and (shiny_color_middle() or hundred_percent_shiny_green() or prismatic_color_middle())) {
         Send("{F5}")
         Sleep(5000)
     }
+
     if (shiny_color_left()) {
-        Send("{e down}"), Sleep(100), Send("{e up}")
+        if (hundred_percent_prismatic_green()) {
+            Sleep(100)
+            Send("{c down}"), Sleep(100), Send("{c up}")
+            Sleep(100)
+        } else {
+            Sleep(100)
+            Send("{e down}"), Sleep(100), Send("{e up}")
+            Sleep(100)
+        }
+    }
+}
+
+fighting_bosses() {
+    while (true) {
+        if (question_mark_top()) {
+            Sleep(1000)
+            while (!shiny_color_left()) {
+                Sleep(1000)
+            }
+            Sleep(1500)
+            if (shiny_color_middle() or hundred_percent_shiny_green()) {
+                Send("{F5}")
+                Sleep(5000)
+            }
+            if (hundred_percent_prismatic_green()) {
+                Sleep(100)
+                Send("{c down}"), Sleep(100), Send("{c up}")
+                Sleep(1000)
+            } else {
+                Send("{F5}")
+            }
+        }
     }
 }
 
